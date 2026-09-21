@@ -11,20 +11,28 @@ public class ArrayBoundedStack<T> implements StackInterface<T> {
     public ArrayBoundedStack(int maxSize){
         elements = (T[]) new Object[maxSize];
     }
-    public boolean isEmpty()
-    {
+    public boolean isEmpty(){
+        if(topIndex == -1){
+            System.out.println("Stack is empty");
+            return true;
+        }
+    
         //TODO: how do we determine if the stack is empty? Implement this method
-        return false;
-    }
+        return false;}
+    
 
-    public boolean isFull()
-    {
+    public boolean isFull(){
+        if(topIndex == DEFAULTCAP -1){)
+            System.out.println("Stack is full");
+            
+        }
         //TODO: How do we determine if the stack is full? Implement this method
         return false;
     }
     
-    public void push(T element)
-    {
+    public void push(T element){
+           fix this code  T [] elements = new T [] elements;
+
        // TODO: How do we add an element to the stack? Implement this method
     }
     

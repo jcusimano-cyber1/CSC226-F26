@@ -17,14 +17,26 @@ public class Main {
          while (fileReader.hasNextLine()) {
             String line = fileReader.nextLine();
             String[] parts = line.split(",");
+            String fullname = parts[0];
+            String nameParts [] = fullname.split(" ");
+            String firstName = nameParts[0];
+            String lastName = nameParts[1];
+            int Age = Integer.parseInt(parts[1]);
+            String gender = parts[2];
+            String phoneNum = parts[3];
+
+            Patient patient = new Patient(firstName, lastName, Age , gender, phoneNum);
+            patients.addPatient(patient);
+            
 
             // TODO REQUIRED: Parse the fields from parts.
             // TODO REQUIRED: Split the full name into firstName and lastName.
             // TODO REQUIRED: Create a Patient and add it to patients.
          }
-
+         System.out.println(patients);
          // TODO REQUIRED: Display the completed registry.
       } catch (FileNotFoundException exception) {
+         System.out.println("Files not found: " + filePath );
          // TODO REQUIRED: Report a missing input file.
       }
    }

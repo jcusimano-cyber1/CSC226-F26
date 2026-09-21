@@ -1,7 +1,7 @@
 package patient_intake;
 // Switch from using ArrayList to a flat array implementation for patient storage.
 
-public class PatientRegistry {
+public class PatientRegistry{ //extends Patient{
     // Flat array to store patients and a size field to track the number of stored patients.
     private Patient[] patientRegistry;
     private int size; // track actual number of patients
@@ -10,23 +10,42 @@ public class PatientRegistry {
     private static final int INITIAL_CAPACITY = 10;
 
     public PatientRegistry() {
-        // TODO REQUIRED: Create the initial array and set the starting size.
+            patientRegistry = new Patient[INITIAL_CAPACITY];
+            size = 0;
+            return;
     }
 
-    public void addPatient(Patient patient) {
+
+
+        // TODO REQUIRED: Create the initial array and set the starting size.
+    
+
+    public void addPatient(Patient [] patientregistry) {
+            for (int i = 0; i < size; i++){
+                patientRegistry[size] = patientregistry;
+                size++;
+                
+                
+                }
+            }
         // TODO REQUIRED: Add a patient to the registry.
         // TODO OPTIONAL (+5%): Expand the array when it becomes full.
-    }
+    
 
     /**
      * Returns the patients currently stored in the registry.
      * The optional encapsulation extension requires returning a defensive copy.
      */
     public Patient[] getPatientRegistry() {
-        return null; // TODO REQUIRED: Return the patients currently stored.
+        return patientRegistry; // TODO REQUIRED: Return the patients currently stored.
     }
 
-    public Patient getPatientByID(String patientID) {
+    public Patient  getPatientByID(String patientID) {
+         for (int i =0; i< size; i++){
+            if (patientRegistry[i] != null && patientRegistry[i].getPatientByID().equals(patientID)){
+                return patientRegistry[i];
+            }
+        }
         return null; // TODO REQUIRED: Search for and return the matching patient.
     }
 
@@ -59,9 +78,8 @@ public class PatientRegistry {
     
     @Override
     public String toString() {
-        return ""; // TODO REQUIRED: Return a useful representation of the registry.
+        return "Patient Registry:\n" + patientRegistry; // TODO REQUIRED: Return a useful representation of the registry.
     }
-
 }
 
 
