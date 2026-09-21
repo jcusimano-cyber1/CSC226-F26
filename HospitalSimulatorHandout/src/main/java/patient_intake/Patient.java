@@ -9,9 +9,8 @@ public class Patient extends Person {
     private int arrivalHour;
     private String insuranceID;
 
-    public Patient(String patientID, String firstName, String lastName, int age, 
-                   String chiefComplaint, int triageLevel, String currentStage, 
-                   String assignedRoom, int arrivalHour, String insuranceID) {
+    public Patient(String patientID, String firstName, int age, 
+                   String chiefComplaint, String currentStage) {
         super(firstName, lastName, age);
         this.patientID = patientID;
         this.chiefComplaint = chiefComplaint;

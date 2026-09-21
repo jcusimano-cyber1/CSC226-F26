@@ -1,7 +1,7 @@
 package patient_intake;
 // Switch from using ArrayList to a flat array implementation for patient storage.
 
-public class PatientRegistry{ //extends Patient{
+public class PatientRegistry {
     // Flat array to store patients and a size field to track the number of stored patients.
     private Patient[] patientRegistry;
     private int size; // track actual number of patients
@@ -20,9 +20,9 @@ public class PatientRegistry{ //extends Patient{
         // TODO REQUIRED: Create the initial array and set the starting size.
     
 
-    public void addPatient(Patient [] patientregistry) {
+    public void addPatient(Patient patient) {
             for (int i = 0; i < size; i++){
-                patientRegistry[size] = patientregistry;
+                patientRegistry[size] = patient;
                 size++;
                 
                 
@@ -42,7 +42,7 @@ public class PatientRegistry{ //extends Patient{
 
     public Patient  getPatientByID(String patientID) {
          for (int i =0; i< size; i++){
-            if (patientRegistry[i] != null && patientRegistry[i].getPatientByID().equals(patientID)){
+            if (patientRegistry[i] != null && patientRegistry[i].getPatientID().equals(patientID)){
                 return patientRegistry[i];
             }
         }
