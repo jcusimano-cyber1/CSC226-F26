@@ -1,6 +1,6 @@
 package patient_intake;
 
-public class Patient extends Person {
+public class Patient extends Person{
     private String patientID;
     private String chiefComplaint;
     private int triageLevel;
@@ -9,9 +9,9 @@ public class Patient extends Person {
     private int arrivalHour;
     private String insuranceID;
 
-    public Patient(String patientID, String firstName, int age, 
+    public Patient(String patientID, String firstName,String lastName, int age, 
                    String chiefComplaint, String currentStage) {
-        super(firstName, lastName, age);
+        super(firstName,  lastName,  age);
         this.patientID = patientID;
         this.chiefComplaint = chiefComplaint;
         this.triageLevel = triageLevel;

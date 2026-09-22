@@ -25,7 +25,7 @@ public class Main {
             String gender = parts[2];
             String phoneNum = parts[3];
 
-            Patient patient = new Patient(firstName, lastName, Age , gender, phoneNum);
+            Patient patient = new Patient(parts[4], firstName, lastName, Age, parts[5], parts[6]);
             patients.addPatient(patient);
             
 

@@ -4,9 +4,7 @@ import java.util.*;
 import patient_intake.Patient;
 
 public class EfficiencyTester {
-    // int index = linearSearch(Patient [] patients, String pid);
-    // Patient[] patients;
-    // private static Patient linearSearch(Patient [] patients, String pid) { coming back to this later.
+    
 
     /**
      * REQUIRED (80%): Implement linear search.
@@ -40,13 +38,17 @@ public class EfficiencyTester {
         int high = patients.length -1;
         while(low <= high){
             int middle = (low + high) / 2;
-            int value = patients[middle];
-            if (value < 0){
+            Patient value = patients[middle];
+            String patientID = value.getPatientID();
+            if (patientID.equals(pid)) {
+                return value;
+            }
+            else if (patientID.compareTo(pid) < 0){
                 low = middle + 1;
-            } else if (value > 0){
+            } 
+            else
+            {
                 high = middle - 1;
-            } else {
-                return patients[middle];
             }
         }
         // TODO REQUIRED: Implement iterative binary search.
