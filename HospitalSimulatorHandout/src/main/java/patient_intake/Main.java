@@ -22,12 +22,12 @@ public class Main {
             String firstName = nameParts[0];
             String lastName = nameParts[1];
             int Age = Integer.parseInt(parts[1]);
-            String gender = parts[2];
+           String gender = parts[2];
             String phoneNum = parts[3];
 
-            Patient patient = new Patient(parts[4], firstName, lastName, Age, parts[5], parts[6]);
-            patients.addPatient(patient);
-            
+            Patient []patient = new Patient[1];
+            patient[0] = new Patient(parts[4], firstName, lastName, Age);
+            patients.addPatient(patient[0]);
 
             // TODO REQUIRED: Parse the fields from parts.
             // TODO REQUIRED: Split the full name into firstName and lastName.

@@ -14,9 +14,9 @@ public class EfficiencyTester {
      *
      * This method must run in O(n) time.
      */
-    public Patient linearSearch(Patient[] patients, String pid) {
+    public static Patient linearSearch(Patient[] patients, String pid) {
         for (int i = 0; i < patients.length; i++) {
-            if (pid == patients[i].getPatientID()) {
+            if (pid.equals(patients[i].getPatientID())) {
                 return patients[i];
             }
         }
@@ -33,11 +33,12 @@ public class EfficiencyTester {
      *
      * This method must run in O(log n) time.
      */
-    public Patient binarySearch(Patient[] patients, String pid) {
+    public static Patient binarySearch(Patient[] patients, String pid) {
         int low = 0;
         int high = patients.length -1;
+        int middle = (low + high) / 2;
         while(low <= high){
-            int middle = (low + high) / 2;
+            //int middle = (low + high) / 2;
             Patient value = patients[middle];
             String patientID = value.getPatientID();
             if (patientID.equals(pid)) {
@@ -51,9 +52,12 @@ public class EfficiencyTester {
                 high = middle - 1;
             }
         }
+        
+        Patient value = patients[middle];
+        return  value;
         // TODO REQUIRED: Implement iterative binary search.
         // The array must be sorted by patientID before calling this method.
-        return null; // Remove this line and implement the method.
+         // Remove this line and implement the method.
     }
 
     /**
@@ -69,13 +73,13 @@ public class EfficiencyTester {
      * - where you learned about it
      * - why it works
      */
-    public Patient logNSearch(Patient[] patients, String pid) {
+    public static Patient logNSearch(Patient[] patients, String pid) {
         // TODO OPTIONAL: Research and implement a second O(log n) algorithm.
         // Cite your source and explain the approach in a comment before the logic.
         return null; // Remove this line and implement the method.
     }
 
-    public void timeDemo() {
+    public static void timeDemo() {
         long startTime = System.nanoTime();
         for (int i = 0; i < 100000; i++) {
             int x = 5 + 5;

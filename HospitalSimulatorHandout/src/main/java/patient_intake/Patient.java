@@ -9,8 +9,7 @@ public class Patient extends Person{
     private int arrivalHour;
     private String insuranceID;
 
-    public Patient(String patientID, String firstName,String lastName, int age, 
-                   String chiefComplaint, String currentStage) {
+    public Patient(String patientID, String firstName,String lastName, int age, String chiefComplaint, int triageLevel, String currentStage, String assignedRoom, int arrivalHour, String insuranceID) {
         super(firstName,  lastName,  age);
         this.patientID = patientID;
         this.chiefComplaint = chiefComplaint;
@@ -21,6 +20,19 @@ public class Patient extends Person{
         this.insuranceID = insuranceID;
         // TODO REQUIRED: Initialize the patient-specific fields.
     }
+    public Patient(String patientID, String firstName,
+               String lastName, int age)  {
+
+    super(firstName, lastName, age);
+
+    this.patientID = patientID;
+    this.chiefComplaint = null;
+    this.triageLevel = 0;
+    this.currentStage = null;
+    this.assignedRoom = null;
+    this.arrivalHour = 0;
+    this.insuranceID = null;
+}
 
     // Getters
     public String getPatientID() {
