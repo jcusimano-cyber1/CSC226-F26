@@ -22,7 +22,7 @@ public class ArrayBoundedStack<T> implements StackInterface<T> {
     
 
     public boolean isFull(){
-        if(topIndex == DEFAULTCAP -1){)
+        if(topIndex == DEFAULTCAP -1){
             System.out.println("Stack is full");
             
         }
@@ -31,7 +31,7 @@ public class ArrayBoundedStack<T> implements StackInterface<T> {
     }
     
     public void push(T element){
-           fix this code  T [] elements = new T [] elements;
+         //  fix this code  T [] elements = new T [] elements;
 
        // TODO: How do we add an element to the stack? Implement this method
     }

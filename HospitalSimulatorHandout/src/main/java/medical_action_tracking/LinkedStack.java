@@ -14,31 +14,47 @@ public class LinkedStack<T> {
     private int size;
 
     public void push(T item) {
+        if (item == null){
+            return;
+        }
         // TODO: Reject null items, then link a new node at the top and update size.
     }
 
     public T pop() {
+        if(top == null){
+            return null;
+        }
+        T item = top.data;
+        top = top.next;
+        size --;
         // TODO: Remove and return the top item, or return null when empty.
-        return null;
+        return item;
     }
 
     public T peek() {
+        if(top == null){
+            return null;
+        }
         // TODO: Return the top item without removing it, or null when empty.
-        return null;
+        return top.data;
     }
 
     public boolean isEmpty() {
+        if(size ==0){
+            return true;
+        }
+        else{
         // TODO: Determine whether the stack contains any items.
-        return false;
+        return false;}
     }
 
     public int size() {
         // TODO: Return the number of stacked items.
-        return 0;
+        return size;
     }
 
     @Override
-    public String toString() {
+    public String toString() {// do later
         // TODO: Build [top, next, ...] by traversing the stack without changing it.
         return "[]";
     }

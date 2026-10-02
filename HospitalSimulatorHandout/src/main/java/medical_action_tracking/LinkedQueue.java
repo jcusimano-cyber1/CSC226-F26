@@ -15,10 +15,22 @@ public class LinkedQueue<T> {
     private int size;
 
     public LinkedQueue() {
+        front = null;
+        rear = null;
+        size = 0;
         // TODO: Initialize an empty queue.
     }
 
     public void enqueue(T item) {
+        if(item == null){
+            throw new IllegalArgumentException();
+        }
+        Node newNode = new Node(item);
+        if (rear==null){
+            front = newNode;
+            rear = newNode;
+        }
+        size++; // finish the rest
         // TODO: Add a node at the rear. Update both references when the queue is empty.
     }
 

@@ -21,13 +21,12 @@ public class PatientRegistry {
     
 
     public void addPatient(Patient patient) {
-            for (int i = 0; i < size; i++){
                 patientRegistry[size] = patient;
                 size++;
                 
                 
                 }
-            }
+            
         // TODO REQUIRED: Add a patient to the registry.
         // TODO OPTIONAL (+5%): Expand the array when it becomes full.
     
@@ -37,7 +36,11 @@ public class PatientRegistry {
      * The optional encapsulation extension requires returning a defensive copy.
      */
     public Patient[] getPatientRegistry() {
-        return patientRegistry; // TODO REQUIRED: Return the patients currently stored.
+        Patient [] result = new Patient[size];
+        for (int i=0; i < size; i++){
+            result[i] = patientRegistry[i];
+        }
+        return result; // TODO REQUIRED: Return the patients currently stored.
     }
 
     public Patient  getPatientByID(String patientID) {
@@ -78,7 +81,11 @@ public class PatientRegistry {
     
     @Override
     public String toString() {
-        return "Patient Registry:\n" + patientRegistry; // TODO REQUIRED: Return a useful representation of the registry.
+        String result = "Patient Registry: \n";
+        for (int i =0; i < size; i++){
+            result += patientRegistry[i] + "\n";
+        }
+        return result; // TODO REQUIRED: Return a useful representation of the registry.
     }
 }
 

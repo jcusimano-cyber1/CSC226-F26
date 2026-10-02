@@ -19,8 +19,13 @@ public class LinkedListExamples {
      * Shows: Position 0: "First", Position 1: "Second", etc.
      */
     public static <T> void displayWithPositions(LLNode<T> head) {
-        // TODO: Implement this function
-        // hint: Use a counter variable and traverse the list    
+        int counter = 0;
+        LLNode<T> current = head;
+        while (current != null) {
+            System.out.println("Position " + counter + ": " + current.getInfo());
+            counter++;
+            current = current.getNext();
+        }
     }
     
     /**
@@ -28,6 +33,14 @@ public class LinkedListExamples {
      * Returns the new head of the list (important if first element is removed)
      */
     public static <T> LLNode<T> removeElement(LLNode<T> head, T target) {
+        int counter = 0;
+        LLNode<T> current = head;
+        if(head == null){
+            head.getNext();
+            head = null;
+        }
+        
+
         // TODO: Implement this function
         // Handle special case: removing the first element
         // For other elements: find the node before the target

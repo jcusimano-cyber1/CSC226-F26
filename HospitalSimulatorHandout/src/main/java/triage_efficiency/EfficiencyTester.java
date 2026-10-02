@@ -38,7 +38,7 @@ public class EfficiencyTester {
         int high = patients.length -1;
         int middle = (low + high) / 2;
         while(low <= high){
-            //int middle = (low + high) / 2;
+            middle = (low + high) / 2;
             Patient value = patients[middle];
             String patientID = value.getPatientID();
             if (patientID.equals(pid)) {
@@ -53,8 +53,9 @@ public class EfficiencyTester {
             }
         }
         
-        Patient value = patients[middle];
-        return  value;
+       Patient value = patients[middle];
+       //return value 
+        return  null;
         // TODO REQUIRED: Implement iterative binary search.
         // The array must be sorted by patientID before calling this method.
          // Remove this line and implement the method.
