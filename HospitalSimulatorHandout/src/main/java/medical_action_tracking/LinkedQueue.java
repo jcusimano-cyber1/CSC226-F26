@@ -35,33 +35,60 @@ public class LinkedQueue<T> {
     }
 
     public T dequeue() {
+        if(front==null){
+            return null;
+        }
+        T item = front.data;
+        front = front.next;
+        size--;
+        
+        if(front == null){
+            rear = null;
+        }
+        return item;
         // TODO: Remove and return the front item, or return null if empty.
         // TODO: When removing the last item, make both front and rear null.
-        return null;
+    
     }
 
     public T peekFront() {
+        if (front == null){
+            return null;
+        }
         // TODO: Return the front item without removing it, or null if empty.
-        return null;
+        return front.data;
     }
 
     public boolean isEmpty() {
         // TODO: Determine whether the queue contains any items.
-        return false;
+        return size == 0;
     }
 
     public int size() {
         // TODO: Return the number of queued items.
-        return 0;
+        return size;
     }
 
     @Override
     public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append("[");
+        appendNodesRecursively(front, result);
+        result.append("[");
         // TODO: Recursively build a string from front to rear without changing the queue.
-        return "[]";
+        return result.toString();
     }
 
     private void appendNodesRecursively(Node current, StringBuilder result) {
+        if(current == null){
+            return;
+        }
+        result.append(current.data);
+        if(current.next != null){
+            result.append(", ");
+
+        }
+        appendNodesRecursively(current.next, result);
         // TODO: Add the current node's data, then recursively visit current.next.
         // TODO: Stop at the null-node base case.
     }
