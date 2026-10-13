@@ -81,11 +81,8 @@ public class PatientRegistry {
     
     @Override
     public String toString() {
-        String result = "Patient Registry: \n";
-        for (int i =0; i < size; i++){
-            result += patientRegistry[i] + "\n";
-        }
-        return result; // TODO REQUIRED: Return a useful representation of the registry.
+       
+        return "PatientRegistry{size= " + size + "}" ; // TODO REQUIRED: Return a useful representation of the registry.
     }
 }
 

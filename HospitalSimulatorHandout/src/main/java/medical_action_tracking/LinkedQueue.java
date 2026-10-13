@@ -30,6 +30,10 @@ public class LinkedQueue<T> {
             front = newNode;
             rear = newNode;
         }
+        else{
+            rear.next = newNode;
+            rear = newNode;
+        }
         size++; // finish the rest
         // TODO: Add a node at the rear. Update both references when the queue is empty.
     }
@@ -73,9 +77,12 @@ public class LinkedQueue<T> {
     public String toString() {
         StringBuilder result = new StringBuilder();
         result.append("[");
+        
         appendNodesRecursively(front, result);
-        result.append("[");
+        
+        
         // TODO: Recursively build a string from front to rear without changing the queue.
+        result.append("]");
         return result.toString();
     }
 
@@ -84,6 +91,7 @@ public class LinkedQueue<T> {
             return;
         }
         result.append(current.data);
+        
         if(current.next != null){
             result.append(", ");
 

@@ -75,6 +75,23 @@ public class EfficiencyTester {
      * - why it works
      */
     public static Patient logNSearch(Patient[] patients, String pid) {
+        int low = 0;
+        int high = patients.length -1;
+
+        while (low <= high){
+            int middle = (low + high) /2;
+
+            if (pid.compareTo(patients[middle].getPatientID())==0){
+                return patients[middle];
+            }
+            else if (pid.compareTo(patients[middle].getPatientID())>0){
+                low = middle + 1;
+            }
+            else  if  (pid.compareTo(patients[middle].getPatientID())<0){
+                high = middle -1;
+            }
+          
+        }
         // TODO OPTIONAL: Research and implement a second O(log n) algorithm.
         // Cite your source and explain the approach in a comment before the logic.
         return null; // Remove this line and implement the method.

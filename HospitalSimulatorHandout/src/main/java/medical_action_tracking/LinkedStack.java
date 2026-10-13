@@ -15,8 +15,12 @@ public class LinkedStack<T> {
 
     public void push(T item) {
         if (item == null){
-            return;
+            throw new IllegalArgumentException();
         }
+        Node newNode = new Node(item);
+        newNode.next = top;
+        top = newNode;
+        size++;
         // TODO: Reject null items, then link a new node at the top and update size.
     }
 
@@ -67,7 +71,7 @@ public class LinkedStack<T> {
             }
              current = current.next;
          }
-        result.append("] ");
+        result.append("]");
 
 
     
