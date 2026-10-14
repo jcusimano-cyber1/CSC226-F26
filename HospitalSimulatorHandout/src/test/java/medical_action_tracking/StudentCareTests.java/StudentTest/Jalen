@@ -1,0 +1,91 @@
+ 
+package medical_action_tracking;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class StudentCareTests { // I had help from youtube to create these test cases
+
+    // Test 1: Queue returns to empty after removing its only item
+    @Test
+    public void testQueueBecomesEmpty() {
+        LinkedQueue<Integer> numbers = new LinkedQueue<>();
+
+        numbers.enqueue(25);
+
+        assertEquals(25, numbers.dequeue());
+        assertTrue(numbers.isEmpty());
+        assertEquals(0, numbers.size());
+    }
+
+    // Test 2: Queue keeps the correct order after adding more items
+    @Test
+    public void testQueueKeepsOrder() {
+        LinkedQueue<Integer> numbers = new LinkedQueue<>();
+
+        numbers.enqueue(10);
+        numbers.enqueue(20);
+        numbers.enqueue(30);
+        numbers.enqueue(40);
+
+        assertEquals(10, numbers.dequeue());
+        assertEquals(20, numbers.dequeue());
+        assertEquals(30, numbers.peekFront());
+        assertEquals(2, numbers.size());
+    }
+
+    // Test 3: Stack becomes empty after its last item is removed
+    @Test
+    public void testStackBecomesEmpty() {
+        LinkedStack<Integer> numbers = new LinkedStack<>();
+
+        numbers.push(7);
+
+        assertEquals(7, numbers.pop());
+        assertTrue(numbers.isEmpty());
+        assertNull(numbers.peek());
+    }
+
+    // Test 4: Stack display shows newest item first
+    @Test
+    public void testStackDisplayOrder() {
+        LinkedStack<String> names = new LinkedStack<>();
+
+        names.push("Mike");
+        names.push("Jordan");
+        names.push("Taylor");
+
+        assertEquals("[Taylor, Jordan, Mike]", names.toString());
+        assertEquals(3, names.size());
+        assertEquals("Taylor", names.peek());
+    }
+
+    // Test 5: Invalid triage level is rejected
+    @Test
+    public void testInvalidTriageLevel() {
+        EmergencyWaitingRoom room = new EmergencyWaitingRoom();
+
+        Patient patient =
+                new Patient("P10", "Jamie", "Lee", 5);
+
+        assertFalse(room.addPatient(patient));
+        assertEquals(0, room.size());
+        assertTrue(room.isEmpty());
+    }
+
+    // Test 6: Undoing the only treatment empties the history
+    @Test
+    public void testUndoLastTreatment() {
+        TreatmentHistory history = new TreatmentHistory();
+
+        history.addTreatment(
+                "P20", "X-ray", "2026-10-13 11:00");
+
+        TreatmentRecord removed = history.undoLastAction();
+
+        assertNotNull(removed);
+        assertEquals("P20", removed.getPatientID());
+        assertEquals("[]", history.displayHistory());
+        assertNull(history.undoLastAction());
+    }
+}
