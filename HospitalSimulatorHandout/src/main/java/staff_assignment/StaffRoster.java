@@ -15,6 +15,9 @@ public class StaffRoster {
 
     // TODO: Add the staff member to the correct tier, and reject a duplicate staffId.
     public void addStaff(StaffMember staff) {
+        if (staff == null){
+            throw new illegalArgumentException("Staff cannot be null");
+        }
     }
 
     // TODO: Pick the least-loaded staff member at or above "required", raise their load by 1, and return them.

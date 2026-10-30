@@ -8,7 +8,7 @@ public class Recursion {
         return n; // base case
         fib(n - 1);// recurive, not implenment it into this
         numbers = fib(n) + fib(n-1);
-        return numbers;
+        return numbers; // fix this code later on and learn it fully
         
         }
     }
@@ -26,11 +26,11 @@ public class Recursion {
             node=node.getNext();
         }
     }
-    public static <T> void recursivePrinter(LLNode<T> node){
+    public static <T> void recursivePrinter(LLNode<T> node){// use as more practice
        
     }
 
-    public static <T> int recursiveCounter(LLNode<T> node, int counter){
+    public static <T> int recursiveCounter(LLNode<T> node, int counter){// use as practice
         
     }
 

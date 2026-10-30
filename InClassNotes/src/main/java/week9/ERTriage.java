@@ -28,26 +28,74 @@ class HeapPQ {
     }
 
     private void swap(int a, int b) {
+        Patient temp = heap[a];
+        heap[a] = heap[b];
+        heap[b] = temp;
         
     }
 
     // TODO Round 1: insert p in the next open slot, then restore the max-heap.
     void enqueue(Patient p) {
+        lastIndex++;
+        heap[lastIndex] = p;
+        reheapUp(lastIndex);
+
     }
 
     // TODO Round 1: swap upward while a patient's severity is greater than its parent's.
     // Parent of i: (i - 1) / 2
     private void reheapUp(int i) {
-    }
+        while(i>0){
+            int parent = (i-1) / 2;
+            if (heap[i].severity > heap[parent].severity){
+                swap(i, parent);
+                i = parent;}
+                else{
+                    break;
+                }
+            }
+        }
+
 
     // TODO Round 2: save the root, move the last patient to the root, shrink, and restore the heap.
     Patient dequeue() {
+        if(isEmpty()){
         return null;
     }
+    Patient remove = heap[0];
+    heap[0] = heap[lastIndex];
+    heap[lastIndex] = null;
+    lastIndex--;
+    
+    if(!isEmpty()){
+        reheapDown(0);
+    }
+    return remove;
+}
+
 
     // TODO Round 2: swap down with the larger child while the max-heap property is broken.
     // Children of i: 2 * i + 1 and 2 * i + 2
     private void reheapDown(int i) {
+        int left = 2* i +1;
+        int right = 2 * i +2;
+        while (left <= lastIndex){
+            int biggerChild= left;
+            
+            if(right <= lastIndex && heap[right].severity > heap[left].severity){
+                biggerChild = right;}
+            
+            if(heap[i].severity < heap[biggerChild].severity){
+                swap(i, biggerChild);
+                i = biggerChild;
+
+                left =2* i +1;
+                right = 2 * i +2;
+            }
+            else{
+                break;
+            }
+        }
     }
 
     @Override
